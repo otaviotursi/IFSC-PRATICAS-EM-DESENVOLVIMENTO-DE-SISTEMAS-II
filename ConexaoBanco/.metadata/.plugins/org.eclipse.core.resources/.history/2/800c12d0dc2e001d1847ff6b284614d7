@@ -1,0 +1,26 @@
+package ifsc.otaviotursi;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+	private static void ConectarBanco() {
+		
+	}
+	
+	private static void InserirAluno() {
+		
+	}
+	
+	private static void SelecionarTodosAlunos() {
+		
+	}
+	
+    public static void main( String[] args )
+    {
+    	System.out.println( "Iniciando aplicação" );
+    	ConectarBanco();
+    }
+}

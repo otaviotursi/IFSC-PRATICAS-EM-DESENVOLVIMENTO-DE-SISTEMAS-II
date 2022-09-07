@@ -1,0 +1,33 @@
+package ifsc.otaviotursi;
+
+import java.util.List;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+	private static void ConectarBanco() {
+		
+	}
+	
+	private static void InserirAluno() {
+		
+	}
+	
+	private static List<String> SelecionarTodosAlunos() {
+		
+	}
+	
+    public static void main( String[] args )
+    {
+    	System.out.println( "Iniciando aplicação" );
+    	List<String> listaAlunos = new ArrayList<String>();
+    	ConectarBanco();
+    	listaAlunos = SelecionarTodosAlunos();
+    	InserirAluno();
+    	listaAlunos = SelecionarTodosAlunos()
+    	
+    }
+}

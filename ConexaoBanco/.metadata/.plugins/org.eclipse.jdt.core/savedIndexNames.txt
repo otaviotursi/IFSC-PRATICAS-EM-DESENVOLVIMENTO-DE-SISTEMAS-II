@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+D:\.Programacao\Java\PDS2\ConexaoBanco\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+2403038945.index
+103353653.index
+3458913285.index
+3413725848.index

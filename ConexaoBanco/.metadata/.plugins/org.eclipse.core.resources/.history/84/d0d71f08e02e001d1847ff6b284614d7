@@ -1,0 +1,83 @@
+package ifsc.otaviotursi;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.List;
+
+public class App 
+{
+	private static Connection conn;
+	
+	private static void ConectarBanco() throws SQLException, Exception {
+		String username = "root";
+		String password = "senha";
+		
+		String conexaoUrl = "jdbc:mysql://localhost:3306/DESENV";
+		
+		Class.forName("com.mysql.jdbc.Driver");
+		conn = DriverManager.getConnection(conexaoUrl, username, password);
+		
+		if(conn != null) {
+			System.out.println("Conexão obtida com sucesso. "+conn);
+		}
+		
+	}
+	
+	private static void InserirAluno(Aluno aluno) {
+    	System.out.println( "Inserindo aluno" );
+    	//String nome, String matricula, String telefone, String curso, Date dataNascimento 
+    	
+	}
+	
+	private static List<Aluno> SelecionarTodosAlunos() throws SQLException {
+
+    	System.out.println( "Selecionando todos os alunos" );
+		List<Aluno> listaAlunos = new ArrayList<Aluno>();
+    	ResultSet sqlAlunos = conn.createStatement().executeQuery("SELECT * FROM aluno");
+		while(sqlAlunos.next()) {
+			Aluno aluno = new Aluno();
+	    	aluno.curso = sqlAlunos.getString("curso");
+	    	aluno.matricula = sqlAlunos.getString("matricula");
+	    	aluno.nome = sqlAlunos.getString("nome");
+	    	aluno.dataNascimento = sqlAlunos.getDate("dataNascimento");
+	    	aluno.telefone = sqlAlunos.getString("telefone");
+	    	listaAlunos.add(aluno);
+		}
+		return listaAlunos;
+	}
+	
+    public static void main( String[] args ) throws SQLException, Exception
+    {
+    	System.out.println( "Iniciando aplicação" );
+    	List<Aluno> listaAlunos = new ArrayList<Aluno>();
+    	Aluno aluno = new Aluno();
+    	ConectarBanco();
+    	
+    	listaAlunos = SelecionarTodosAlunos();
+    	System.out.println( "Listando alunos" );
+    	for(Aluno aluno : listaAlunos) {
+        	System.out.println( aluno.ToString() );
+    	}
+    	
+    	aluno = new Aluno();
+    	aluno.nome = "Otavio";
+    	aluno.dataNascimento = new GregorianCalendar(2020, 2, 01);
+    	aluno.matricula = "123456";
+    	aluno.telefone = "11 98764";
+    	aluno.curso = "ADS";
+    	InserirAluno(aluno);
+    	
+    	
+    	listaAlunos = SelecionarTodosAlunos();
+    	System.out.println( "Listando alunos" );
+    	for(Aluno aluno : listaAlunos) {
+        	System.out.println( aluno.ToString() );
+    	}
+    	
+    }
+}

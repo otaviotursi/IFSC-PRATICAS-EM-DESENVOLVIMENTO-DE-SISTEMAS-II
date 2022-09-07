@@ -1,0 +1,5 @@
+Nome               Telefone     Disciplina       Nota 
+Amanda Nunes       47-999999999 Análise e Desen 1.0  
+Augusto da Silva   47-999999999 Programação    2.0  
+Natália dos Anjos 47-999999999 Teste de Soft    3.0  
+Rogério Xavier    47-999999999 Webdesign        2.0  
